@@ -82,13 +82,13 @@ async def set_channel(ctx):
         await ctx.send(embed=discord.Embed(
             description="❌ Insufficient permissions.",
             color=int("FA3939", 16)
-        ).set_author(name="Slime Bot", icon_url=bot.user.avatar.url if bot.user.avatar else None))
+        ).set_author(name="Q-Bot", icon_url=bot.user.avatar.url if bot.user.avatar else None))
         return
     logging_channels[ctx.guild.id] = ctx.channel.id
     await ctx.send(embed=discord.Embed(
         description=f"✅ Newly found Gimkit PINs will be sent to {ctx.channel.mention}.",
         color=int("50B4E6", 16)
-    ).set_author(name="Slime Bot", icon_url=bot.user.avatar.url if bot.user.avatar else None))
+    ).set_author(name="Q-Bot", icon_url=bot.user.avatar.url if bot.user.avatar else None))
 
 @bot.command(aliases=["gc"], help="Get the logging channel of the server.")
 async def get_channel(ctx):
@@ -97,12 +97,12 @@ async def get_channel(ctx):
         await ctx.send(embed=discord.Embed(
             description=f"📡 Current logging channel: {channel.mention}",
             color=int("50B4E6", 16)
-        ).set_author(name="Slime Bot", icon_url=bot.user.avatar.url if bot.user.avatar else None))
+        ).set_author(name="Q-Bot", icon_url=bot.user.avatar.url if bot.user.avatar else None))
     else:
         await ctx.send(embed=discord.Embed(
             description="❌ No logging channel set.",
             color=int("FA3939", 16)
-        ).set_author(name="Slime Bot", icon_url=bot.user.avatar.url if bot.user.avatar else None))
+        ).set_author(name="Q-Bot", icon_url=bot.user.avatar.url if bot.user.avatar else None))
 
 @tasks.loop(seconds=5)
 async def check_logs():
@@ -113,7 +113,7 @@ async def check_logs():
             channel = bot.get_channel(channel_id)
             if channel:
                 embed = discord.Embed(description=msg, color=int("50B4E6", 16))
-                embed.set_author(name="Slime Bot", icon_url=bot.user.avatar.url if bot.user.avatar else None)
+                embed.set_author(name="Q-Bot", icon_url=bot.user.avatar.url if bot.user.avatar else None)
                 await channel.send(embed=embed)
 
 @bot.event
