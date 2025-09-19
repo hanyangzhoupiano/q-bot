@@ -3,11 +3,12 @@ import discord
 import random
 import threading
 import queue
+import os
 from concurrent.futures import ThreadPoolExecutor
 from discord.ext import commands, tasks
 
 # ---------- CONFIG ----------
-TOKEN = "YOUR_TOKEN_HERE"
+TOKEN = os.environ.get('TOKEN')
 BATCH_SIZE = 10000  # 900k codes / 90 batches
 MAX_WORKERS = 5
 SLEEP_BETWEEN_REQUESTS = 0.05  # seconds
