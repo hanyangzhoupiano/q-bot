@@ -3,10 +3,10 @@ import discord
 import random
 import threading
 import queue
-import flask
 import os
 from concurrent.futures import ThreadPoolExecutor
 from discord.ext import commands, tasks
+from flask import Flask
 
 # ---------- CONFIG ----------
 TOKEN = os.environ.get('TOKEN')
