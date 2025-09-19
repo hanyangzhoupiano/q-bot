@@ -3,6 +3,7 @@ import discord
 import random
 import threading
 import queue
+import flask
 import os
 from concurrent.futures import ThreadPoolExecutor
 from discord.ext import commands, tasks
@@ -17,6 +18,19 @@ SLEEP_BETWEEN_REQUESTS = 0.05  # seconds
 log_queue = queue.Queue()
 logging_channels = {}
 codes_checked = 0
+
+# ---------- FLASK WEB SERVER (for Render) ----------
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+def run_web():
+    app.run(host="0.0.0.0", port=8080)
+
+web_thread = threading.Thread(target=run_web)
+web_thread.start()
 
 # ---------- CODE CHECKING ----------
 def check(code: str):
