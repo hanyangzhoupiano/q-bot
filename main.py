@@ -45,7 +45,7 @@ def check(code: str):
         log_queue.put("🔄 Codes shuffled")
     
     if response.status_code == 200:
-        message = f"📢 New Gimkit Code: {code}\n\nJoin Link: https://gimkit.com/join?gc={code}"
+        message = f"📢 New Gimkit Code: {code}\n\nJoin Link: https://gimkit.com/join/?gc={code}"
         log_queue.put(message)
         print(f"code: {code}; codes checked: {codes_checked}")
 
